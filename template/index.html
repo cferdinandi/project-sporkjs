@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spork.js</title>
+
+	<style type="text/css">
+		body {
+			margin: 0 auto;
+			max-width: 40em;
+			width: 88%;
+		}
+	</style>
+</head>
+<body>
+
+
+	<script src="spork.js"></script>
+	<script>
+		// Build a query string
+		let query = spork.buildQuery({
+			name: 'Chris',
+			lunch: 'Turkey Sandwich',
+			drink: 'soda',
+			side: 'Cape Cod potato chips',
+			snack: 'cookie'
+		});
+		console.log('query', query);
+
+		// Check object types
+		let typeObj = spork.trueTypeOf({});
+		let typeArr = spork.trueTypeOf([]);
+		let typeNum = spork.trueTypeOf(42);
+		let typeStr = spork.trueTypeOf('');
+		console.log('typeObj', typeObj);
+		console.log('typeArr', typeArr);
+		console.log('typeNum', typeNum);
+		console.log('typeStr', typeStr);
+
+		// Immutably clone an object
+		let lunch = {
+			name: 'Chris',
+			lunch: 'Turkey Sandwich',
+			drink: 'soda',
+			side: 'Cape Cod potato chips',
+			snack: 'cookie'
+		};
+		let lunch2 = spork.copy(lunch);
+		lunch.drink = 'water';
+		lunch2.snack = 'ice cream';
+		console.log('lunch orders', lunch, lunch2);
+	</script>
+
+</body>
+</html>
